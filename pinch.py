@@ -80,8 +80,3 @@ def plot_pinch(Cp,T):
     plt.plot([Qcc_acc[i],Qcc_acc[i+1]],Tc[i], 'b')
     plt.plot([Qhc_acc[i],Qhc_acc[i+1]],Th[i], 'r')
   plt.show()
-
-Cp = [1.5, 3, 2, 4]
-T = [[30,150] , [60,170] , [20,135] , [80,140]]    
-plot_pinch(Cp,T)
-

@@ -3,10 +3,10 @@ import numpy as np
 import pandas as pd
 
 def fun(Cph,Cpc,Th,Tc):
-	Cph = np.array(Cph)
-	Cpc = np.array(Cpc)
-	Th  = np.array(Th)
-	Tc  = np.array(Tc)
+    Cph = np.array(Cph)
+    Cpc = np.array(Cpc)
+    Th  = np.array(Th)
+    Tc  = np.array(Tc)
 	
     T  = np.array([])
     for i in range(len(Th)):

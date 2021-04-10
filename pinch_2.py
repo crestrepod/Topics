@@ -26,11 +26,11 @@ def fun(Cph,Cpc,Th,Tc):
     for i in range(len(Th)):
         Qh = np.append(Qh, Cph[i]*dTh[i])
 
-    Qc = np.array([])
+    Qc = np.array([0])
     for i in range(len(Tc)):
         Qc = np.append(Qc, Cpc[i]*dTc[i])
 
-    Qh_acc = np.array([])
+    Qh_acc = np.array([0])
     for i in range(len(Qh)):
         Qh_acc = np.append(Qh_acc, Qh_acc[i]+Qh[i])
 
@@ -43,7 +43,7 @@ def fun(Cph,Cpc,Th,Tc):
                     'T out':Th[:,0],
                     'Cp':   Cph,
                     'Q':Qh,
-                    'Q acc':Qh_acc
+                    'Q acc':Qh_acc[1:]
                     })
   
     print(hot)
@@ -51,7 +51,7 @@ def fun(Cph,Cpc,Th,Tc):
                     'T out':Tc[:,0],
                     'Cp':   Cpc,
                     'Q':Qc,
-                    'Q acc':Qc_acc
+                    'Q acc':Qc_acc[1:]
                     })
     print(cold)
         

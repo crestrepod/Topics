@@ -41,14 +41,14 @@ def fun(Cph,Cpc,Th,Tc):
                     'Q acc':Qh_acc[1:]
                     })
   
-    hot
+    print(hot)
     cold = pd.DataFrame({'T in': Tc[:,1],
                     'T out':Tc[:,0],
                     'Cp':   Cpc,
                     'Q':Qc,
                     'Q acc':Qc_acc[1:]
                     })
-    cold
+    print(cold)
         
     return(Qh, Qc, Qh_acc, Qc_acc)
 	

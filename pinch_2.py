@@ -34,7 +34,7 @@ def fun(Cph,Cpc,Th,Tc):
     for i in range(len(Qh)):
         Qh_acc = np.append(Qh_acc, Qh_acc[i]+Qh[i])
 
-    Qc_acc = np.array([])
+    Qc_acc = np.array([0])
     for i in range(len(Qc)):
         Qc_acc = np.append(Qc_acc, Qc_acc[i]+Qc[i])
 		

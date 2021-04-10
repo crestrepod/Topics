@@ -33,4 +33,20 @@ def fun(Cph,Cpc,Th,Tc):
     Qc_acc = np.array([0])
     for i in range(len(Qc)):
         Qc_acc = np.append(Qc_acc, Qc_acc[i]+Qc[i])
-    return(Qh, Qc, Qh_acc, Qc_acc)
+        
+    hot = pd.DataFrame({'T in': Th[:,1],
+                    'T out':Th[:,0],
+                    'Cp':   Cph,
+                    'Q':Qh,
+                    'Q acc':Qh_acc[1:]
+                    })
+	hot
+	cold = pd.DataFrame({'T in': Tc[:,1],
+                    'T out':Tc[:,0],
+                    'Cp':   Cpc,
+                    'Q':Qc,
+                    'Q acc':Qc_acc[1:]
+                    })
+	cold
+return(Qh, Qc, Qh_acc, Qc_acc)
+	

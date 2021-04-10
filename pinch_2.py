@@ -26,7 +26,7 @@ def fun(Cph,Cpc,Th,Tc):
     for i in range(len(Th)):
         Qh = np.append(Qh, Cph[i]*dTh[i])
 
-    Qc = np.array([0])
+    Qc = np.array([])
     for i in range(len(Tc)):
         Qc = np.append(Qc, Cpc[i]*dTc[i])
 

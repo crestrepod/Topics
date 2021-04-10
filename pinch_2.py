@@ -5,7 +5,7 @@ import pandas as pd
 def fun(Cph,Cpc,Th,Tc):
     Cph = np.array(Cph)
     Cpc = np.array(Cpc)
-    Th  = np.array(Th)
+    Th  = np.array(Th) 
     Tc  = np.array(Tc)
 	
     T  = np.array([])
@@ -55,18 +55,18 @@ def fun(Cph,Cpc,Th,Tc):
                     })
     print(cold)
         
-		return(Qh, Qc, Qh_acc, Qc_acc)
+    return(Qh, Qc, Qh_acc, Qc_acc)
 
 	
 def plot():
-	fig, ax = plt.subplots(1,2,figsize=(15,5))
-	ax[0].set_title("Hot Steam")
-	ax[1].set_title("Cold Steam")
-	for i in range(len(Tc)):
-		ax[0].plot([Qh_acc[i],Qh_acc[i+1]],Th[i], 'r')
-		ax[0].plot([0,Qh_acc[-1]],[Th[i],Th[i]],':k')
-	for i in range(len(Tc)):
-		ax[1].plot([Qc_acc[i],Qc_acc[i+1]],Tc[i], 'b')
-		ax[1].plot([0,Qc_acc[-1]],[Tc[i],Tc[i]],'--k')
-	for i in range(len(ax)):
-		ax[i].set(xlabel='Q', ylabel='T')
+    fig, ax = plt.subplots(1,2,figsize=(15,5))
+    ax[0].set_title("Hot Steam")
+    ax[1].set_title("Cold Steam")
+    for i in range(len(Tc)):
+        ax[0].plot([Qh_acc[i],Qh_acc[i+1]],Th[i], 'r')
+        ax[0].plot([0,Qh_acc[-1]],[Th[i],Th[i]],':k')
+    for i in range(len(Tc)):
+        ax[1].plot([Qc_acc[i],Qc_acc[i+1]],Tc[i], 'b')
+        ax[1].plot([0,Qc_acc[-1]],[Tc[i],Tc[i]],'--k')
+    for i in range(len(ax)):
+        ax[i].set(xlabel='Q', ylabel='T')

@@ -3,8 +3,7 @@ import numpy as np
 import pandas as pd
 
 def fun(Cph,Cpc,Th,Tc):
-    
-    T  = np.array([])
+	T  = np.array([])
     for i in range(len(Th)):
         T = np.append(T, Th[i,:]) 
     for i in range(len(Tc)):
@@ -33,8 +32,7 @@ def fun(Cph,Cpc,Th,Tc):
     Qc_acc = np.array([0])
     for i in range(len(Qc)):
         Qc_acc = np.append(Qc_acc, Qc_acc[i]+Qc[i])
-        
-    hot = pd.DataFrame({'T in': Th[:,1],
+		hot = pd.DataFrame({'T in': Th[:,1],
                     'T out':Th[:,0],
                     'Cp':   Cph,
                     'Q':Qh,
@@ -49,5 +47,6 @@ def fun(Cph,Cpc,Th,Tc):
                     'Q acc':Qc_acc[1:]
                     })
 	print(cold)
+        
 return(Qh, Qc, Qh_acc, Qc_acc)
 	

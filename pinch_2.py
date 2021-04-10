@@ -48,6 +48,6 @@ def fun(Cph,Cpc,Th,Tc):
                     'Q':Qc,
                     'Q acc':Qc_acc[1:]
                     })
-	cold
+	print(cold)
 return(Qh, Qc, Qh_acc, Qc_acc)
 	

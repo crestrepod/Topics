@@ -40,6 +40,7 @@ def fun(Cph,Cpc,Th,Tc):
                     'Q':Qh,
                     'Q acc':Qh_acc[1:]
                     })
+	print(hot)
 	hot
 	cold = pd.DataFrame({'T in': Tc[:,1],
                     'T out':Tc[:,0],

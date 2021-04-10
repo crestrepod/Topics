@@ -58,7 +58,7 @@ def fun(Cph,Cpc,Th,Tc):
     return(Th, Tc, Cph, Cpc, Qh, Qc, Qh_acc, Qc_acc)
 
 	
-def plot():
+def plot(Tc):
     fig, ax = plt.subplots(1,2,figsize=(15,5))
     ax[0].set_title("Hot Steam")
     ax[1].set_title("Cold Steam")

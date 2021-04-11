@@ -97,19 +97,19 @@ def data(Cph,Cpc,Th,Tc):
     Qc_comp = np.array([0])       
     for i in range(len(Cpc_acu)):
         Qc_comp = np.append(Qc_comp, Qc_comp[i] + (Cpc_acu[i]*(cold[i+1]-cold[i])))
-
-    return(Qh,Qc,Qh_acc,Qc_acc,hot,cold,Qh_comp,Qc_comp)
-
+		
+	fig, ax = plt.subplots(1,3,figsize=(15,5))
+	ax[0].set_title("Hot Steam Compound")
+	ax[1].set_title("Cold Steam Compound")
+	ax[2].set_title("Steams Compound")
+	ax[0].plot(Qh_comp,hot,'r')
+	ax[1].plot(Qc_comp,cold,'b')
+	ax[2].plot(Qh_comp,hot,'r')
+	ax[2].plot(Qc_comp,cold,'b')
+	for i in range(len(ax)):
+    	ax[i].set(xlabel='Duty [kW]', ylabel='Temperature [°C]')
+	plt.show()
 	
-def plot(Tc):
-    fig, ax = plt.subplots(1,2,figsize=(15,5))
-    ax[0].set_title("Hot Steam")
-    ax[1].set_title("Cold Steam")
-    for i in range(len(Tc)):
-        ax[0].plot([Qh_acc[i],Qh_acc[i+1]],Th[i], 'r')
-        ax[0].plot([0,Qh_acc[-1]],[Th[i],Th[i]],':k')
-    for i in range(len(Tc)):
-        ax[1].plot([Qc_acc[i],Qc_acc[i+1]],Tc[i], 'b')
-        ax[1].plot([0,Qc_acc[-1]],[Tc[i],Tc[i]],'--k')
-    for i in range(len(ax)):
-        ax[i].set(xlabel='Q', ylabel='T')
+    return(Qh,Qc,Qh_acc,Qc_acc,hot,cold,Qh_comp,Qc_comp)
+	
+	

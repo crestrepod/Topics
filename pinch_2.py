@@ -102,6 +102,6 @@ def data(Cph,Cpc,Th,Tc):
         ax[i].set(xlabel='Duty [kW]', ylabel='Temperature [°C]')
     plt.show()
 	
-    return(Qh,Qc,Qh_acc,Qc_acc,hot,cold,Qh_comp,Qc_comp)
+    return(Qh,Qc,Qh_acc,Qc_acc,hot,cold,Qh_comp,Qc_comp,Cpc_acu,Cph_acu)
 	
 	

@@ -4,11 +4,14 @@ Created on Thu Apr  8 09:03:10 2021
 
 @author: Camilo
 """
-
 import matplotlib.pyplot as plt
 import numpy as np
 
 def data(Cph,Cpc,Th,Tc):
+    Cph = np.array(Cph)
+    Cpc = np.array(Cpc)
+    Th  = np.array(Th)
+    Tc  = np.array(Tc)
     #Calculo T, dT, Q
     T  = np.array([])
     for i in range(len(Th)):
@@ -46,21 +49,16 @@ def data(Cph,Cpc,Th,Tc):
     Cph_acu = np.array([])
     result = np.where(Th == hot[0])
     Cph_acu = np.append(Cph_acu, Cph[int(result[0])])
-
+    alpha = 0
     for i in range(1, len(hot)):
         Cpi = 0
         for n in range(len(Th)):
-            if hot[i] in Th[n] or (hot[i] > Th[n][0] and hot[i] < Th[n][1]): 
+            if hot[i] == Th[n][0] or (hot[i] > Th[n][0] and hot[i] < Th[n][1]): 
                 Cpi = Cpi + Cph[n]
-        if Cpi != 0 : 
+        
+        if Cpi != 0 and alpha != Cpi: 
             Cph_acu = np.append(Cph_acu,Cpi)
-
-    #Código raro para eliminar Cps repetidos consecutivos
-    n = np.array([Cph_acu[0]])
-    for i in range(1,len(Cph_acu)):
-       if Cph_acu[i] != Cph_acu[i-1]:
-           n = np.append(n,Cph_acu[i])
-    Cph_acu = n       
+            alpha = Cpi
 
 
     #Código Calcular Q Compuesto
@@ -80,18 +78,12 @@ def data(Cph,Cpc,Th,Tc):
     for i in range(1, len(cold)):
         Cpi = 0
         for n in range(len(Tc)):
-            if cold[i] in Tc[n] or (cold[i] > Tc[n][0] and cold[i] < Tc[n][1]): 
+            if cold[i] == Tc[n][0] or (cold[i] > Tc[n][0] and cold[i] < Tc[n][1]): 
                 Cpi = Cpi + Cpc[n]
-        if Cpi != 0 : 
+        
+        if Cpi != 0 and alpha != Cpi: 
             Cpc_acu = np.append(Cpc_acu,Cpi)
-
-#Código raro para eliminar Cps repetidos consecutivos
-    n = np.array([Cpc_acu[0]])
-    for i in range(1,len(Cpc_acu)):
-        if Cpc_acu[i] != Cpc_acu[i-1]:
-            n = np.append(n,Cpc_acu[i])
-    Cpc_acu = n       
-
+            alpha = Cpi
 
 #Código Calcular Q Compuesto
     Qc_comp = np.array([0])       

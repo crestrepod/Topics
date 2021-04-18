@@ -76,15 +76,6 @@ def table(Cph, Cpc, Th, Tc, ddT):
         aju = np.append(aju,i - min)
     aju = aju[::-1]
     
-    
-    fig = plt.figure()
-    plt.plot(aju,T)
-    plt.title("Grand Composite Curve \n")
-    plt.xlabel('Duty [kW]')
-    plt.ylabel('Temperature [°C]')
-    plt.xlim(0)
-    plt.plot()
-
     leyenda = ['Cp 1 = 20','Cp 2 = 40','Cp 3 = 80','Cp 4 = 36']
     problem_table = plt.figure()
     for i in range(len(Thw)):
@@ -99,7 +90,17 @@ def table(Cph, Cpc, Th, Tc, ddT):
     plt.xticks(range(0,6,1))
     plt.xlim(0,5)
     plt.legend()
-    plt.show()
+    plt.show()   
+    
+    fig = plt.figure()
+    plt.plot(aju,T)
+    plt.title("Grand Composite Curve \n")
+    plt.xlabel('Duty [kW]')
+    plt.ylabel('Temperature [°C]')
+    plt.xlim(0)
+    plt.plot()
+
+
     
     return(problem_table,fig)
 

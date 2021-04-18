@@ -10,6 +10,10 @@ import matplotlib.pyplot as plt
 def table(Cph, Cpc, Th, Tc, ddT):
     Th = np.array(Th)
     Tc = np.array(Tc)
+    Cpc = np.array(Cpc)
+    
+    #Corrección Cpc
+    Cpc = -Cpc
     
     #Correción de las temperaturas {Th - dT/2}  y  {Tc + dT/2}
     Thw = Th - int(ddT/2)

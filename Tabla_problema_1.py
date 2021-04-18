@@ -67,7 +67,7 @@ def table(Cph, Cpc, Th, Tc, ddT):
     
     #Invertir orden Q
     Qi = Q[::-1]        
-    print(Qi)
+
         
     #Cascada
     Cas = 0

@@ -103,7 +103,6 @@ def table(Cph, Cpc, Th, Tc, ddT):
     
     return(problem_table,fig)
 
-table(Cph1, Cpc1, Th1, Tc1, ddT1)
 
     
     

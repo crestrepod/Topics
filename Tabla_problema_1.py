@@ -21,12 +21,14 @@ def table(Cph, Cpc, Th, Tc, ddT):
     
     #Matriz de Temperaturas globales
     T = []
-    T = np.append(T,(Thw,Tcw))
-    T = np.sort(list(set(T)))
+    T = np.append(T,Thw)
+    T = np.append(T,Thc)
+    T = np.unique(T)
    
     #Matriz de Cp globales
     Cp = []
-    Cp = np.append(Cp, (Cph,Cpc))
+    Cp = np.append(Cp, Cph)
+    Cp = np.append(Cp, Cpc)
 
     #Matriz Temperaturas locales
     Ti = Thw
@@ -83,17 +85,16 @@ def table(Cph, Cpc, Th, Tc, ddT):
     leyenda = ['Cp 1 = 20','Cp 2 = 40','Cp 3 = 80','Cp 4 = 36']
     problem_table = plt.figure()
     for i in range(len(Thw)):
-        plt.plot([i+1,i+1],Thw[i],'r',label=leyenda[i])
+        plt.plot([i+1,i+1],Thw[i],'r')
         a = i+1
     for i in range(len(Tcw)):
-        plt.plot([a+i+1,a+i+1],Tcw[i],'b',label=leyenda[i+a])
+        plt.plot([a+i+1,a+i+1],Tcw[i],'b')
     for i in range(len(Ti)):
         for j in range(2):
            plt.plot([0,len(Ti)+1],[Ti[i][j],Ti[i][j]],':k')
     plt.title('Gráfica Temperatura Corregidas')
-    plt.xticks(range(0,6,1))
-    plt.xlim(0,5)
-    plt.legend()
+    plt.xticks(range(0,len(Ti)+1,1))
+    plt.xlim(0,len(Ti)+1)
     plt.show()   
     
     fig = plt.figure()

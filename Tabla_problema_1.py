@@ -22,7 +22,7 @@ def table(Cph, Cpc, Th, Tc, ddT):
     #Matriz de Temperaturas globales
     T = []
     T = np.append(T,Thw)
-    T = np.append(T,Thc)
+    T = np.append(T,Tcw)
     T = np.unique(T)
    
     #Matriz de Cp globales
